@@ -3,6 +3,7 @@ package main
 import(
     "flag"
     "fmt"
+    "os"
     "errors"
     "io/ioutil"
     "crypto/aes"
@@ -23,11 +24,13 @@ const(
 func main() {
     var(
         decryptFlag bool
+        noPreserveFlag bool
         pass string
         file string
     )
 
-    flag.BoolVar(&decryptFlag, "d", false, "Use this flag to decrypt instead of encrypting")
+    flag.BoolVar(&decryptFlag, "d", false, "Decrypt instead of encrypting")
+    flag.BoolVar(&noPreserveFlag, "no-preserve", false, "Delete the cleartext file after it is decrypted")
     flag.StringVar(&pass, "p", "", "The password to encrypt the file with")
     flag.StringVar(&file, "f", "", "The file to encrypt or decrypt")
     flag.Parse()
@@ -52,6 +55,8 @@ func main() {
 
     if err != nil {
         fmt.Println(err)
+    } else if noPreserveFlag {
+        os.Remove(file)
     }
 }
 
