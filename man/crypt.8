@@ -5,9 +5,10 @@
 .SH SYNOPSIS
 .SY crypt
 .OP -p PASSWORD
-.OP -f FILE
+.OP -f INFILE
 .OP --no-preserve
 .OP -d
+.OP -o OUTFILE
 .YS
 .SH DESCRIPTION
 .B crypt
@@ -22,11 +23,17 @@ A MAC is generated for each encrypted file to verify file integrity upon decrypt
 .TQ
 -p PASSWORD
 The password to encrypt or decrypt
-.IB FILE
+.IB INFILE
 with.
 .TQ
--f FILE
+-f INFILE
 The file to encrypt.
+.TQ
+-o OUTFILE
+The file to write output to.
+Output can be written to STDOUT by setting
+.IB OUTFILE
+to /dev/stdout.
 .TQ
 -d
 Decrypt

@@ -15,7 +15,7 @@ following command:
 You may optionally install the man page and binary to your system by running
 install script with root privileges:
 
-    # ./install.sh
+    # sh install.sh
 
 Usage
 -----
