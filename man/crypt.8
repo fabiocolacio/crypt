@@ -1,0 +1,42 @@
+.TH crypt 8 "26 December 2018" "1.0" "crypt man page"
+.SH NAME
+.B crypt
+\- Encrypt or decrypt files
+.SH SYNOPSIS
+.SY crypt
+.OP -p PASSWORD
+.OP -f FILE
+.OP --no-preserve
+.OP -d
+.YS
+.SH DESCRIPTION
+.B crypt
+is a simple utility to encrypt files on the filesystem, or decrypt files that were encrypted with
+.B crypt.
+.PP
+The password supplied is passed to a KDF to create an AES key.
+The file is then padded with PKCS7, and encrypted with an AES cipher in CBC mode.
+A MAC is generated for each encrypted file to verify file integrity upon decryption.
+.SH OPTIONS
+.TP
+.TQ
+-p PASSWORD
+The password to encrypt or decrypt
+.IB FILE
+with.
+.TQ
+-f FILE
+The file to encrypt.
+.TQ
+-d
+Decrypt
+.IB FILE
+instead of encrypting it.
+.TQ
+--no-preserve
+Enable this flag to delete the original file after encrypting/decrypting it.
+.SH BUGS
+All bugs and issues are tracked and reported at
+.UR "https://github.com/fabiocolacio/crypt"
+.SH AUTHOR
+Fabio Colacio <fabio.colacio.dev@gmail.com>
