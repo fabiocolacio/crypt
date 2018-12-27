@@ -1,12 +1,19 @@
 Crypt
 =====
 
-Easily encrypt and decrypt files from the command line or from scripts. 
+Easily encrypt and decrypt files from the command line or from scripts.
 
 Install
 -------
 
 You must have a Go compiler installed in your system to compile this program.
+You can get a copy at https://golang.org/dl
+
+You must also have Go's PBKDF2 package installed.
+You can install that package with the following command:
+
+    $ go get golang.org/x/crypto/pbkdf2
+
 You can then compile crypt from the root directory of this project with the
 following command:
 
